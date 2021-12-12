@@ -38,23 +38,31 @@ describe('CookbookCli', () => {
   });
 
   describe('Retrieving a recipe', () => {
-                const myCookbook = new Cookbook();
-	        const myCookbookCli = new CookbookCli(myCookbook);
-
-	        myCookbookCli.add('biriyani',['rice','chicken','spices']);
-	        myCookbookCli.add('hotdog',['bun','sausage','ketchup']);
-
-	        const message =  myCookbookCli.get('hotdog');
-
-	        expect(message).toEqual('The ingredients for hotdog are: bun, sausage and ketchup');
-	  test('should display the ingredients required to make the specified recipe', () => {
+    test('should display the ingredients required to make the specified recipe', () => {
+    
+      const myCookbook = new Cookbook();
+	    const myCookbookCli = new CookbookCli(myCookbook);
+      
+      const message =  myCookbookCli.get('guiso');
+	        
+      myCookbookCli.get('guiso',['rice','chicken','condiments']);
+	        
+      expect(message).toEqual('The ingredients for guiso are: rice, chicken and condiments');
+	  
 
     });
   });
 
   describe('Deleting a recipe', () => {
     test('should accept the recipe name and display the correct message', () => {
+       const myCookbook = new Cookbook();
+       const myCookbookCli = new CookbookCli(myCookbook);
+        
+       const message = myCookbookCli.remove('pizza');
+       
+       myCookbookCli.remove('pizza', ['dough', 'cheese', 'sauce']);
 
+       expect(message).toEqual('Successfully removed the following recipe: pizza');
     });
   });
 });
