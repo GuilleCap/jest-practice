@@ -2,7 +2,12 @@ const { Cookbook } = require('../src/cookbook');
 
 describe('Cookbook', () => {
   describe('Adding recipes', () => {
-    test('should allow a recipe to be added', () => {
+  test('should allow a recipe to be added', () => {
+   const myCookbook = new Cookbook();
+	 
+	  myCookbook.addRecipe("chivitoCanadiense", ['bread', 'fry egg', 'bacon', 'lettuce and tomato', 'meat']);
+
+	  expect(myCookbook.recipes).toEqual({ chivitoCanadiense: ['bread', 'fry egg', 'bacon', 'lettuce and tomato', 'meat'] });
 
     });
   });
