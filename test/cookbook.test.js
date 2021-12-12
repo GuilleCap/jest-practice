@@ -14,7 +14,8 @@ describe('Cookbook', () => {
 
   describe('Listing recipes', () => {
     test('should allow the recipes to be listed', () => {
-    const myCookbook = new Cookbook();
+    
+      const myCookbook = new Cookbook();
     myCookbook.addRecipe('burguer', ['meat', 'bread', 'cheese']);
 
    const myRecipes = myCookbook.listRecipes();
@@ -28,12 +29,27 @@ describe('Cookbook', () => {
 
   describe('Retrieving a recipe', () => {
     test('should allow the ingredients for a recipe to be retrieved', () => {
+      
+      const myCookbook = new Cookbook();
+      myCookbook.addRecipe('tortillas', ['dough', 'water'])
 
+      const myRecipes = myCookbook.getRecipes();
+
+      expect(myRecipes).toEqual(['tortillas']);
     });
   });
 
   describe('Deleting a recipe', () => {
     test('should allow a recipe to be deleted', () => {
+      
+      const myCookbook = new Cookbook();
+      myCookbook.addRecipe('hotdog', ['meat', 'bread']);
+
+      const myRecipes = myCookbook.removeRecipes();
+
+      expect(myRecipes).toEqual(['hotdog']);
+
+
 
     });
   });
