@@ -17,7 +17,17 @@ class Cookbook {
 
   removeRecipe(name) {
     delete this.recipes[name];
-  }
-}
+  }}
 
 module.exports = { Cookbook };
+
+const myCookbook = new Cookbook();
+
+
+
+
+
+
+
+
+
